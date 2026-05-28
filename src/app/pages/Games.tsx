@@ -91,19 +91,19 @@ export default function Games() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block bg-[#FACC15] text-[#3B0764] font-extrabold text-sm px-4 py-1 rounded-full mb-5 tracking-wider uppercase">
+                <span className="inline-block bg-[#FACC15] text-[#3B0764] font-extrabold text-[0.8rem] md:text-sm px-3 md:px-4 py-1 rounded-full mb-4 md:mb-5 tracking-wider uppercase">
                   🎮 Zona de Juegos
                 </span>
-                <h1 className="font-['Fredoka_One',cursive] text-[clamp(2.4rem,5vw,3.8rem)] leading-tight mb-4">
+                <h1 className="font-['Fredoka_One',cursive] text-[2.2rem] md:text-[clamp(2.4rem,5vw,3.8rem)] leading-tight mb-3 md:mb-4">
                   ¡Elige tu<br />
                   <span className="text-[#FACC15]">aventura</span> y juega!
                 </h1>
-                <p className="text-[1.05rem] font-semibold opacity-90 max-w-[460px] leading-relaxed mb-8">
+                <p className="text-[0.95rem] md:text-[1.05rem] font-semibold opacity-90 max-w-[460px] leading-relaxed mb-6 md:mb-8 mx-auto md:mx-0">
                   Tres módulos educativos diseñados especialmente para que aprender a leer y escribir sea la actividad más divertida del día.
                 </p>
                 <Link
                   to="/registro"
-                  className="inline-flex items-center gap-2 bg-[#FACC15] text-[#3B0764] font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-[40px] no-underline shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-transform"
+                  className="inline-flex items-center gap-2 bg-[#FACC15] text-[#3B0764] font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3.5 md:py-4 rounded-[40px] no-underline shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-transform"
                 >
                   🐾 ¡Comenzar gratis!
                 </Link>
@@ -112,19 +112,19 @@ export default function Games() {
 
             {/* floating dino + letters */}
             <motion.div
-              className="relative flex-shrink-0 flex items-center justify-center w-64 h-64"
+              className="relative flex-shrink-0 flex items-center justify-center w-[180px] h-[180px] md:w-64 md:h-64 mt-4 md:mt-0"
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="text-[9rem] filter drop-shadow-[4px_8px_12px_rgba(0,0,0,0.25)]">🦖</span>
+              <span className="text-[7rem] md:text-[9rem] filter drop-shadow-[4px_8px_12px_rgba(0,0,0,0.25)]">🦖</span>
               {[
-                { letter: "A", color: "#EF4444", top: "-10px", left: "-30px", delay: 0 },
-                { letter: "B", color: "#3B82F6", top: "40px", right: "-40px", delay: 0.8 },
-                { letter: "Z", color: "#F97316", bottom: "20px", left: "-50px", delay: 1.5 },
+                { letter: "A", color: "#EF4444", top: "-10px", left: "-20px", delay: 0 },
+                { letter: "B", color: "#3B82F6", top: "40px", right: "-30px", delay: 0.8 },
+                { letter: "Z", color: "#F97316", bottom: "20px", left: "-40px", delay: 1.5 },
               ].map(({ letter, color, delay, ...pos }) => (
                 <motion.span
                   key={letter}
-                  className="absolute font-['Fredoka_One',cursive] text-[2.8rem] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.25)]"
+                  className="absolute font-['Fredoka_One',cursive] text-[2.2rem] md:text-[2.8rem] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.25)]"
                   style={{ color, ...pos } as React.CSSProperties}
                   animate={{ y: [0, -10, 0], rotate: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity, delay, ease: "easeInOut" }}
@@ -307,22 +307,22 @@ export default function Games() {
         <div className="pointer-events-none absolute bottom-[-2rem] left-[-2rem] text-[12rem] opacity-5">🦕</div>
         <div className="pointer-events-none absolute top-[-1rem] right-[2rem] text-[10rem] opacity-5">🦖</div>
         <div className="relative max-w-[600px] mx-auto">
-          <h2 className="font-['Fredoka_One',cursive] text-[2.4rem] mb-4">
+          <h2 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[2.4rem] mb-3 md:mb-4">
             ¡La aventura de las letras te espera!
           </h2>
-          <p className="text-[1.05rem] font-semibold opacity-90 mb-8">
+          <p className="text-[0.95rem] md:text-[1.05rem] font-semibold opacity-90 mb-6 md:mb-8">
             Únete a LETRASAURIO y haz que aprender a leer y escribir sea la actividad favorita de tus niños.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               to="/registro"
-              className="inline-flex items-center justify-center gap-2 bg-[#FACC15] text-[#3B0764] font-['Fredoka_One',cursive] text-[1.15rem] px-8 py-4 rounded-[40px] no-underline shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-transform"
+              className="inline-flex items-center justify-center gap-2 bg-[#FACC15] text-[#3B0764] font-['Fredoka_One',cursive] text-[1rem] md:text-[1.15rem] px-6 md:px-8 py-3.5 md:py-4 rounded-[40px] no-underline shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-transform"
             >
               🌟 Registrarse gratis
             </Link>
             <Link
               to="/login"
-              className="inline-flex items-center justify-center gap-2 bg-white/15 border-2 border-white/40 text-white font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-[40px] no-underline hover:bg-white/25 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white/15 border-2 border-white/40 text-white font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3.5 md:py-4 rounded-[40px] no-underline hover:bg-white/25 transition-colors"
             >
               👤 Ya tengo cuenta
             </Link>

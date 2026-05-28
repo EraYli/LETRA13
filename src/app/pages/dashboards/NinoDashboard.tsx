@@ -76,22 +76,22 @@ export default function NinoDashboard() {
       <DinoLettersBg />
 
       {/* Header */}
-      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-8 py-4 relative z-10">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 no-underline">
-            <span className="text-[2rem]">🦕</span>
-            <span className="font-['Fredoka_One',cursive] text-[1.5rem] text-[#6B21A8]">
+      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-4 md:px-8 py-3 md:py-4 relative z-10">
+        <div className="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-1.5 md:gap-2 no-underline shrink-0">
+            <span className="text-[1.5rem] md:text-[2rem]">🦕</span>
+            <span className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] text-[#6B21A8]">
               LETRA<span className="text-[#16A34A]">SAURIO</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4 ml-auto">
             <div className="text-right">
-              <p className="font-bold text-gray-800">Hola, {user?.name}! 👋</p>
-              <p className="text-[0.85rem] text-gray-600 font-semibold">Niño</p>
+              <p className="font-bold text-gray-800 text-[0.85rem] md:text-[1rem] leading-tight">Hola, {user?.name}!</p>
+              <p className="text-[0.7rem] md:text-[0.85rem] text-gray-600 font-semibold leading-tight">Niño</p>
             </div>
             <button
               onClick={handleLogout}
-              className="bg-white border-2 border-[#6B21A8] text-[#6B21A8] font-bold px-4 py-2 rounded-full hover:bg-[#6B21A8] hover:text-white transition-all"
+              className="bg-white border-2 border-[#6B21A8] text-[#6B21A8] font-bold px-3 py-1 md:px-4 md:py-2 text-[0.85rem] md:text-[1rem] rounded-full hover:bg-[#6B21A8] hover:text-white transition-all shrink-0"
             >
               Salir
             </button>
@@ -99,40 +99,40 @@ export default function NinoDashboard() {
         </div>
       </header>
 
-      <div className="max-w-[1200px] mx-auto px-8 py-12 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-6 md:py-12 relative z-10">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-br from-[#6B21A8] to-[#7C3AED] text-white rounded-[28px] p-8 mb-8 shadow-[0_8px_30px_rgba(107,33,168,0.2)] relative overflow-hidden">
-          <div className="absolute top-[-20px] right-[-20px] text-[8rem] opacity-10">🦖</div>
+        <div className="bg-gradient-to-br from-[#6B21A8] to-[#7C3AED] text-white rounded-[24px] md:rounded-[28px] p-6 md:p-8 mb-6 md:mb-8 shadow-[0_8px_30px_rgba(107,33,168,0.2)] relative overflow-hidden">
+          <div className="absolute top-[-10px] md:top-[-20px] right-[-10px] md:right-[-20px] text-[5rem] md:text-[8rem] opacity-10 pointer-events-none select-none">🦖</div>
           <div className="relative z-10">
-            <h1 className="font-['Fredoka_One',cursive] text-[2.5rem] mb-3">
-              ¡Bienvenido a tu aventura, {user?.name}! 🌟
+            <h1 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[2.5rem] mb-2 md:mb-3 leading-tight pr-10 md:pr-0">
+              ¡Bienvenido, {user?.name}! 🌟
             </h1>
-            <p className="text-[1.1rem] font-semibold opacity-95">
+            <p className="text-[0.95rem] md:text-[1.1rem] font-semibold opacity-95 leading-relaxed">
               ¿Listo para aprender más letras hoy? ¡Elige un módulo y comencemos!
             </p>
           </div>
         </div>
 
         {/* Modules Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
           {modules.map((module, index) => {
             const progress = progresoPorModulo[module.title] ?? 0;
             return (
               <Link
                 key={index} to={module.link}
-                className={`bg-gradient-to-br ${module.gradient} text-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(107,33,168,0.15)] hover:scale-105 transition-transform no-underline relative overflow-hidden`}
+                className={`bg-gradient-to-br ${module.gradient} text-white rounded-[20px] md:rounded-[24px] p-5 md:p-6 shadow-[0_4px_20px_rgba(107,33,168,0.15)] hover:scale-105 transition-transform no-underline relative overflow-hidden`}
               >
                 <div className="absolute top-[-30px] right-[-30px] w-[100px] h-[100px] rounded-full bg-white/10" />
                 <div className="relative z-10">
-                  <div className="text-[3.5rem] mb-3">{module.icon}</div>
-                  <h3 className="font-['Fredoka_One',cursive] text-[1.5rem] mb-2">{module.title}</h3>
-                  <p className="text-[0.95rem] font-semibold opacity-90 mb-4">{module.description}</p>
+                  <div className="text-[3rem] md:text-[3.5rem] mb-2 md:mb-3">{module.icon}</div>
+                  <h3 className="font-['Fredoka_One',cursive] text-[1.3rem] md:text-[1.5rem] mb-1 md:mb-2">{module.title}</h3>
+                  <p className="text-[0.9rem] md:text-[0.95rem] font-semibold opacity-90 mb-3 md:mb-4 leading-snug">{module.description}</p>
                   {progress < 100 && (
-                    <div className="bg-white/20 rounded-full h-2 mb-2">
+                    <div className="bg-white/20 rounded-full h-2 mb-1.5 md:mb-2">
                       <div className="bg-white rounded-full h-2 transition-all" style={{ width: `${progress}%` }} />
                     </div>
                   )}
-                  <p className="text-[0.85rem] font-bold opacity-90">{progress}% completado</p>
+                  <p className="text-[0.8rem] md:text-[0.85rem] font-bold opacity-90">{progress}% completado</p>
                 </div>
               </Link>
             );
@@ -140,26 +140,26 @@ export default function NinoDashboard() {
         </div>
 
         {/* Achievements board */}
-        <div className="bg-white rounded-[24px] p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] mb-8">
-          <h2 className="font-['Fredoka_One',cursive] text-[1.8rem] text-[#3B0764] mb-6">🏆 Logros que puedes obtener</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+        <div className="bg-white rounded-[20px] md:rounded-[24px] p-6 md:p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] mb-6 md:mb-8">
+          <h2 className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem] text-[#3B0764] mb-4 md:mb-6">🏆 Logros que puedes obtener</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 md:gap-4">
             {LOGROS_CONFIG.map((achievement) => {
               const unlocked = logrosUsuario.includes(achievement.title) ||
                                (achievement.oldTitles && achievement.oldTitles.some(ot => logrosUsuario.includes(ot)));
               return (
                 <div
                   key={achievement.key}
-                  className={`rounded-2xl p-4 text-center transition-all duration-300 border-2 flex flex-col items-center justify-center ${
+                  className={`rounded-2xl p-3 md:p-4 text-center transition-all duration-300 border-2 flex flex-col items-center justify-center ${
                     unlocked
                       ? "bg-gradient-to-br from-[#FAF7F0] to-[#e9d5ff] border-purple-200 shadow-md hover:scale-105"
                       : "bg-gray-50 border-dashed border-gray-200 opacity-60"
                   }`}
                   title={achievement.title}
                 >
-                  <div className={`text-[2.8rem] mb-2 select-none transition-all ${unlocked ? "" : "filter grayscale opacity-45"}`}>
+                  <div className={`text-[2.2rem] md:text-[2.8rem] mb-1 md:mb-2 select-none transition-all ${unlocked ? "" : "filter grayscale opacity-45"}`}>
                     {achievement.icon}
                   </div>
-                  <h4 className={`font-['Fredoka_One',cursive] text-[0.8rem] leading-tight break-words ${unlocked ? "text-[#6B21A8]" : "text-gray-400"}`}>
+                  <h4 className={`font-['Fredoka_One',cursive] text-[0.75rem] md:text-[0.8rem] leading-tight break-words ${unlocked ? "text-[#6B21A8]" : "text-gray-400"}`}>
                     {achievement.title}
                   </h4>
                 </div>
@@ -169,28 +169,28 @@ export default function NinoDashboard() {
         </div>
 
         {/* Progress Card below achievements */}
-        <div className="mt-8">
+        <div className="mt-6 md:mt-8">
           <Link
             to="/mi-progreso"
-            className="block bg-gradient-to-r from-[#F97316] to-[#FDE68A] text-gray-800 rounded-[28px] p-8 shadow-[0_8px_30px_rgba(249,115,22,0.15)] hover:scale-[1.02] transition-all no-underline relative overflow-hidden"
+            className="block bg-gradient-to-r from-[#F97316] to-[#FDE68A] text-gray-800 rounded-[20px] md:rounded-[28px] p-6 md:p-8 shadow-[0_8px_30px_rgba(249,115,22,0.15)] hover:scale-[1.02] transition-all no-underline relative overflow-hidden"
           >
             {/* Decorative Background Emojis */}
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-[6rem] opacity-20 pointer-events-none select-none">
+            <div className="absolute right-0 md:right-6 top-1/2 -translate-y-1/2 text-[4rem] md:text-[6rem] opacity-10 md:opacity-20 pointer-events-none select-none">
               🦖🏆
             </div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-6 text-center md:text-left flex-col md:flex-row">
-                <span className="text-[4rem] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.15)]">🏆</span>
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+              <div className="flex items-center gap-4 md:gap-6 text-center md:text-left flex-col md:flex-row">
+                <span className="text-[3.5rem] md:text-[4rem] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.15)] leading-none">🏆</span>
                 <div>
-                  <h3 className="font-['Fredoka_One',cursive] text-[1.8rem] text-[#3B0764] mb-1">
+                  <h3 className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem] text-[#3B0764] mb-1">
                     Mi Panel de Progreso
                   </h3>
-                  <p className="text-[1.1rem] font-bold text-gray-700 max-w-[500px]">
+                  <p className="text-[0.95rem] md:text-[1.1rem] font-bold text-gray-700 max-w-[500px]">
                     Revisa cuántas letras has dominado, tus medallas ganadas y tu racha de días consecutivos de aprendizaje.
                   </p>
                 </div>
               </div>
-              <span className="bg-[#3B0764] hover:bg-[#6B21A8] text-white font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-full shadow-lg transition-all hover:scale-105">
+              <span className="bg-[#3B0764] hover:bg-[#6B21A8] text-white font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transition-all hover:scale-105 w-full md:w-auto text-center mt-2 md:mt-0">
                 Ver mi progreso →
               </span>
             </div>

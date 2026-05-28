@@ -44,22 +44,78 @@ export default function CrearCuenta() {
   };
 
   return (
-    <form onSubmit={handleRegistro}>
-      <h2>Crear cuenta 🌟</h2>
-      <input type="text" placeholder="Tu nombre" onChange={(e) => setNombre(e.target.value)} required />
-      <input type="email" placeholder="tu@email.com" onChange={(e) => setCorreo(e.target.value)} required />
-      <input type="password" placeholder="********" onChange={(e) => setContrasena(e.target.value)} required />
-      
-      <div>
-        <button type="button" onClick={() => setTipoUsuario('niño')}>👦 Niño</button>
-        <button type="button" onClick={() => setTipoUsuario('tutor')}>👨‍👩‍👧 Tutor</button>
-        <button type="button" onClick={() => setTipoUsuario('admin')}>👤 Admin</button>
-      </div>
+    <div className="max-w-md mx-auto bg-white rounded-[24px] p-6 md:p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
+      <h2 className="font-['Fredoka_One',cursive] text-[1.6rem] md:text-[2rem] text-[#3B0764] mb-6 text-center">
+        Crear cuenta 🌟
+      </h2>
+      <form onSubmit={handleRegistro} className="flex flex-col gap-4">
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Nombre</label>
+          <input 
+            type="text" 
+            placeholder="Tu nombre" 
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6B21A8] focus:outline-none transition-colors"
+            onChange={(e) => setNombre(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Correo</label>
+          <input 
+            type="email" 
+            placeholder="tu@email.com" 
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6B21A8] focus:outline-none transition-colors"
+            onChange={(e) => setCorreo(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Contraseña</label>
+          <input 
+            type="password" 
+            placeholder="********" 
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6B21A8] focus:outline-none transition-colors"
+            onChange={(e) => setContrasena(e.target.value)} 
+            required 
+          />
+        </div>
+        
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2">Soy...</label>
+          <div className="grid grid-cols-3 gap-2">
+            <button 
+              type="button" 
+              onClick={() => setTipoUsuario('niño')}
+              className={`py-2 px-1 rounded-xl text-[0.8rem] md:text-[0.9rem] font-bold transition-all border-2 ${tipoUsuario === 'niño' ? 'bg-[#16A34A] text-white border-[#16A34A]' : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-[#16A34A]'}`}
+            >
+              👦 Niño
+            </button>
+            <button 
+              type="button" 
+              onClick={() => setTipoUsuario('tutor')}
+              className={`py-2 px-1 rounded-xl text-[0.8rem] md:text-[0.9rem] font-bold transition-all border-2 ${tipoUsuario === 'tutor' ? 'bg-[#F97316] text-white border-[#F97316]' : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-[#F97316]'}`}
+            >
+              👨‍👩‍👧 Tutor
+            </button>
+            <button 
+              type="button" 
+              onClick={() => setTipoUsuario('admin')}
+              className={`py-2 px-1 rounded-xl text-[0.8rem] md:text-[0.9rem] font-bold transition-all border-2 ${tipoUsuario === 'admin' ? 'bg-[#6B21A8] text-white border-[#6B21A8]' : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-[#6B21A8]'}`}
+            >
+              👤 Admin
+            </button>
+          </div>
+        </div>
 
-      {/* ESTE ES EL BOTÓN QUE DISPARA EL SUBMIT */}
-      <button type="submit" disabled={cargando}>
-        {cargando ? 'Registrando...' : 'Crear cuenta 🚀'}
-      </button>
-    </form>
+        {/* ESTE ES EL BOTÓN QUE DISPARA EL SUBMIT */}
+        <button 
+          type="submit" 
+          disabled={cargando}
+          className="mt-4 w-full bg-[#6B21A8] hover:bg-[#7C3AED] disabled:bg-gray-400 text-white font-['Fredoka_One',cursive] text-[1.1rem] py-3.5 rounded-xl transition-all shadow-md"
+        >
+          {cargando ? 'Registrando...' : 'Crear cuenta 🚀'}
+        </button>
+      </form>
+    </div>
   );
 }

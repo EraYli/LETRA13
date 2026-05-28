@@ -38,22 +38,22 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] flex items-center justify-center px-8 py-12 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] flex items-center justify-center px-4 md:px-8 py-8 md:py-12 relative overflow-hidden">
       <DinoLettersBg />
 
       <div className="w-full max-w-md relative z-10">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8 no-underline">
-          <span className="text-[3rem]">🦕</span>
-          <span className="font-['Fredoka_One',cursive] text-[2rem] text-[#6B21A8]">
+        <Link to="/" className="flex items-center justify-center gap-1.5 md:gap-2 mb-6 md:mb-8 no-underline">
+          <span className="text-[2.5rem] md:text-[3rem]">🦕</span>
+          <span className="font-['Fredoka_One',cursive] text-[1.6rem] md:text-[2rem] text-[#6B21A8]">
             LETRA<span className="text-[#16A34A]">SAURIO</span>
           </span>
         </Link>
 
-        <div className="bg-white rounded-[28px] p-8 shadow-[0_8px_30px_rgba(107,33,168,0.15)]">
-          <h1 className="font-['Fredoka_One',cursive] text-[2rem] text-[#3B0764] mb-2 text-center">
+        <div className="bg-white rounded-[20px] md:rounded-[28px] p-6 md:p-8 shadow-[0_8px_30px_rgba(107,33,168,0.15)]">
+          <h1 className="font-['Fredoka_One',cursive] text-[1.6rem] md:text-[2rem] text-[#3B0764] mb-1.5 md:mb-2 text-center">
             Iniciar sesión 👋
           </h1>
-          <p className="text-gray-600 font-semibold text-center mb-6">
+          <p className="text-gray-600 font-semibold text-center mb-5 md:mb-6 text-[0.9rem] md:text-[1rem]">
             ¡Bienvenido de nuevo a la aventura!
           </p>
 

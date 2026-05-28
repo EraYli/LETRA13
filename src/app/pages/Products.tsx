@@ -58,7 +58,7 @@ export default function Products() {
       <section className="py-12 md:py-16 px-4 md:px-8 bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] relative overflow-hidden">
         <HeroBg />
         <div className="max-w-[1100px] mx-auto text-center relative z-10">
-          <h1 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[3rem] text-[#3B0764] mb-4 md:mb-6 leading-tight">
+          <h1 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[3rem] text-[#3B0764] mb-3 md:mb-6 leading-tight">
             Productos y Servicios ✨
           </h1>
           <p className="text-[0.95rem] md:text-[1.1rem] text-gray-700 font-semibold max-w-[700px] mx-auto leading-relaxed px-2 md:px-0">
@@ -126,15 +126,15 @@ export default function Products() {
 
       <section className="py-12 md:py-16 px-4 md:px-8 bg-[#FAF7F0]">
         <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[2.2rem] text-[#3B0764] mb-4 md:mb-6 leading-tight">¿Listo para comenzar la aventura? 🚀</h2>
-          <p className="text-gray-700 font-semibold mb-6 md:mb-8 text-[0.95rem] md:text-[1.05rem] leading-relaxed">
+          <h2 className="font-['Fredoka_One',cursive] text-[1.6rem] md:text-[2.2rem] text-[#3B0764] mb-3 md:mb-6 leading-tight">¿Listo para comenzar la aventura? 🚀</h2>
+          <p className="text-gray-700 font-semibold mb-6 md:mb-8 text-[0.9rem] md:text-[1.05rem] leading-relaxed">
             Registra a tu hijo en LETRASAURIO y observa cómo el aprendizaje se convierte en su actividad favorita.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link to="/registro" className="bg-[#6B21A8] hover:bg-[#7C3AED] text-white font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-[40px] shadow-[0_6px_20px_rgba(107,33,168,0.35)] transition-all no-underline w-full sm:w-auto">
+            <Link to="/registro" className="bg-[#6B21A8] hover:bg-[#7C3AED] text-white font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3.5 md:py-4 rounded-[40px] shadow-[0_6px_20px_rgba(107,33,168,0.35)] transition-all no-underline w-full sm:w-auto">
               Registrarse gratis
             </Link>
-            <Link to="/login" className="bg-white hover:bg-gray-50 text-[#6B21A8] border-2 border-[#6B21A8] font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-[40px] transition-all no-underline w-full sm:w-auto">
+            <Link to="/login" className="bg-white hover:bg-gray-50 text-[#6B21A8] border-2 border-[#6B21A8] font-['Fredoka_One',cursive] text-[1rem] md:text-[1.1rem] px-6 md:px-8 py-3.5 md:py-4 rounded-[40px] transition-all no-underline w-full sm:w-auto">
               Iniciar sesión
             </Link>
           </div>

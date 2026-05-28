@@ -76,26 +76,26 @@ export default function Hero() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] min-h-[520px] flex items-center px-8 max-sm:px-4 pt-12 pb-0 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] min-h-[520px] flex items-center px-4 md:px-8 pt-8 md:pt-12 pb-0 relative overflow-hidden">
 
       <HeroBg />
 
       {/* Contenido principal */}
-      <div className="max-w-[1200px] mx-auto flex items-center gap-8 w-full relative z-10 max-md:flex-col max-md:items-center max-md:text-center">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full relative z-10 text-center md:text-left">
 
         {/* Texto */}
-        <div className="flex-1 pb-12 max-md:pb-4">
-          <h1 className="font-['Fredoka_One',cursive] text-[clamp(1.8rem,8vw,3.8rem)] leading-[1.1] text-[#3B0764] mb-4 [text-shadow:2px_3px_0_rgba(107,33,168,0.12)]">
+        <div className="flex-1 pb-4 md:pb-12 mt-4 md:mt-0">
+          <h1 className="font-['Fredoka_One',cursive] text-[2.5rem] md:text-[clamp(1.8rem,8vw,3.8rem)] leading-[1.1] text-[#3B0764] mb-3 md:mb-4 [text-shadow:2px_3px_0_rgba(107,33,168,0.12)]">
             Aprende jugando<br />
             <em className="text-[#16A34A] not-italic">con las letras</em> 🌟
           </h1>
-          <p className="text-[1.05rem] text-gray-600 font-bold max-w-[420px] mb-8 leading-relaxed max-md:mx-auto">
+          <p className="text-[1rem] md:text-[1.05rem] text-gray-600 font-bold max-w-[420px] mb-6 md:mb-8 leading-relaxed mx-auto md:mx-0">
             LETRASAURIO convierte el aprendizaje en una aventura divertida e interactiva para niñas y niños.
           </p>
           <Link to="/registro">
             <motion.button
               animate={controls}
-              className="inline-flex items-center gap-2 bg-[#6B21A8] text-white font-['Fredoka_One',cursive] text-[1.15rem] px-8 py-3.5 rounded-[40px] shadow-[0_6px_20px_rgba(107,33,168,0.35)] tracking-wide border-none cursor-pointer"
+              className="inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-[#6B21A8] text-white font-['Fredoka_One',cursive] text-[1.05rem] md:text-[1.15rem] px-6 md:px-8 py-3.5 rounded-[40px] shadow-[0_6px_20px_rgba(107,33,168,0.35)] tracking-wide border-none cursor-pointer"
               whileHover={{ y: -3, boxShadow: "0 10px 28px rgba(107,33,168,0.45)" }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -105,7 +105,7 @@ export default function Hero() {
         </div>
 
         {/* Área del dino */}
-        <div className="relative flex-shrink-0 max-sm:scale-[0.7] max-sm:-mt-12 max-sm:-mb-12 origin-top" style={{ width: 420, height: 420 }}>
+        <div className="relative flex-shrink-0 origin-top transform scale-75 md:scale-100 -mt-8 md:-mt-0 -mb-8 md:-mb-0 w-[300px] h-[300px] md:w-[420px] md:h-[420px]">
 
           <RoarRing delay={0}    color="rgba(107,33,168,0.22)" />
           <RoarRing delay={0.85} color="rgba(59,130,246,0.18)" />
@@ -133,13 +133,8 @@ export default function Hero() {
           <motion.img
             src={dinoImg}
             alt="Dinosaurios bebé LETRASAURIO"
-            className="absolute"
+            className="absolute bottom-[10px] left-1/2 -ml-[140px] md:-ml-[185px] w-[280px] md:w-[370px] h-auto"
             style={{
-              bottom: 10,
-              left: "50%",
-              marginLeft: -185,
-              width: 370,
-              height: "auto",
               filter: "drop-shadow(0 8px 20px rgba(107,33,168,0.18))",
             }}
             animate={{ rotate: [-2, 2, -1.5, 1.5, -2], scale: [1, 1.03, 1, 1.03, 1] }}

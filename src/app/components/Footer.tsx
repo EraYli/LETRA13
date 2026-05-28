@@ -2,8 +2,8 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#3B0764] text-white py-14 px-8">
-      <div className="max-w-[1100px] mx-auto grid grid-cols-[2fr_1fr_1fr_1fr] gap-10 pb-10 border-b border-white/15 max-md:grid-cols-[1fr_1fr] max-[480px]:grid-cols-1">
+    <footer className="bg-[#3B0764] text-white py-10 px-6 md:py-14 md:px-8">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 md:gap-10 pb-10 border-b border-white/15">
         <div>
           <Link to="/" className="flex items-center gap-2 no-underline mb-3">
             <span className="text-[1.4rem]">🦕</span>

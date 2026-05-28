@@ -33,14 +33,11 @@ export default function ModulesSection() {
     <section className="py-12 md:py-20 px-4 md:px-8 bg-white relative overflow-hidden" id="modulos">
 
       {/* Decoración fondo */}
-      {/* Decoración fondo */}
-      {/* Decoración fondo */}
-      {/* Decoración fondo */}
-      <span className="absolute top-4 left-4 text-[7rem] opacity-25 rotate-[-15deg] select-none pointer-events-none">🦕</span>
-      <span className="absolute top-4 right-4 text-[7rem] opacity-25 rotate-[15deg] select-none pointer-events-none">🦖</span>
-      <span className="absolute bottom-4 left-8 text-[6rem] opacity-20 rotate-[10deg] select-none pointer-events-none">🐾</span>
-      <span className="absolute bottom-4 right-8 text-[6rem] opacity-20 rotate-[-10deg] select-none pointer-events-none">🦕</span>
-      <span className="absolute top-[40%] left-2 text-[5rem] opacity-20 select-none pointer-events-none">🌿</span>
+      <span className="absolute top-4 left-4 text-[4rem] md:text-[7rem] opacity-25 rotate-[-15deg] select-none pointer-events-none">🦕</span>
+      <span className="absolute top-4 right-4 text-[4rem] md:text-[7rem] opacity-25 rotate-[15deg] select-none pointer-events-none">🦖</span>
+      <span className="absolute bottom-4 left-8 text-[3rem] md:text-[6rem] opacity-20 rotate-[10deg] select-none pointer-events-none">🐾</span>
+      <span className="absolute bottom-4 right-8 text-[3rem] md:text-[6rem] opacity-20 rotate-[-10deg] select-none pointer-events-none">🦕</span>
+      <span className="absolute top-[40%] left-2 text-[3rem] md:text-[5rem] opacity-20 select-none pointer-events-none">🌿</span>
       <span className="absolute top-[40%] right-2 text-[5rem] opacity-20 select-none pointer-events-none">🌿</span>
       <span className="absolute top-[15%] left-[10%] text-[4rem] opacity-20 rotate-[8deg] select-none pointer-events-none">🥚</span>
       <span className="absolute bottom-[15%] right-[10%] text-[4rem] opacity-20 rotate-[-8deg] select-none pointer-events-none">🥚</span>
