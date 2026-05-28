@@ -153,22 +153,22 @@ export default function TutorDashboard() {
       <DinoLettersBg />
 
       {/* Header */}
-      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-8 py-4 relative z-10">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 no-underline">
-            <span className="text-[2rem]">🦕</span>
-            <span className="font-['Fredoka_One',cursive] text-[1.5rem] text-[#6B21A8]">
+      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-4 md:px-8 py-3 md:py-4 relative z-10">
+        <div className="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-1.5 md:gap-2 no-underline shrink-0">
+            <span className="text-[1.5rem] md:text-[2rem]">🦕</span>
+            <span className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] text-[#6B21A8]">
               LETRA<span className="text-[#16A34A]">SAURIO</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4 ml-auto">
             <div className="text-right">
-              <p className="font-bold text-gray-800">Panel de Tutor 👨‍👩‍👧</p>
-              <p className="text-[0.85rem] text-gray-600 font-semibold">{user?.name}</p>
+              <p className="font-bold text-gray-800 text-[0.85rem] md:text-[1rem] leading-tight">Panel de Tutor 👨‍👩‍👧</p>
+              <p className="text-[0.7rem] md:text-[0.85rem] text-gray-600 font-semibold leading-tight">{user?.name}</p>
             </div>
             <button
               onClick={handleLogout}
-              className="bg-white border-2 border-[#6B21A8] text-[#6B21A8] font-bold px-4 py-2 rounded-full hover:bg-[#6B21A8] hover:text-white transition-all"
+              className="bg-white border-2 border-[#6B21A8] text-[#6B21A8] font-bold px-3 py-1 md:px-4 md:py-2 text-[0.85rem] md:text-[1rem] rounded-full hover:bg-[#6B21A8] hover:text-white transition-all shrink-0"
             >
               Salir
             </button>
@@ -176,80 +176,80 @@ export default function TutorDashboard() {
         </div>
       </header>
 
-      <div className="max-w-[1200px] mx-auto px-8 py-12 relative z-10">
-        <div className="bg-white rounded-[24px] p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="font-['Fredoka_One',cursive] text-[1.8rem] text-[#3B0764]">🧒 Mis estudiantes</h2>
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-6 md:py-12 relative z-10">
+        <div className="bg-white rounded-[20px] md:rounded-[24px] p-5 md:p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+            <h2 className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem] text-[#3B0764] text-center sm:text-left">🧒 Mis estudiantes</h2>
             <button
               onClick={() => { setShowModal(true); setFormSuccess(''); setFormError(''); }}
-              className="bg-[#6B21A8] hover:bg-[#7C3AED] text-white font-bold px-6 py-3 rounded-xl transition-all"
+              className="bg-[#6B21A8] hover:bg-[#7C3AED] text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all w-full sm:w-auto text-[0.95rem] md:text-[1rem]"
             >
               + Agregar niño
             </button>
           </div>
 
           {loading ? (
-            <p className="text-center text-gray-500 py-8">Cargando...</p>
+            <p className="text-center text-gray-500 py-8 text-[0.9rem] md:text-[1rem]">Cargando...</p>
           ) : ninos.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-[3rem] mb-4">👶</p>
-              <p className="font-bold text-gray-600 text-[1.1rem]">Aún no tienes estudiantes registrados</p>
-              <p className="text-gray-500 mt-2">Haz clic en "Agregar niño" para comenzar</p>
+            <div className="text-center py-10 md:py-12">
+              <p className="text-[2.5rem] md:text-[3rem] mb-3 md:mb-4">👶</p>
+              <p className="font-bold text-gray-600 text-[1rem] md:text-[1.1rem]">Aún no tienes estudiantes registrados</p>
+              <p className="text-gray-500 mt-1 md:mt-2 text-[0.9rem] md:text-[1rem]">Haz clic en "Agregar niño" para comenzar</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {ninos.map((nino) => (
-                <div key={nino.id} className="bg-gradient-to-br from-[#6B21A8] to-[#7C3AED] text-white rounded-2xl p-6 flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow">
+                <div key={nino.id} className="bg-gradient-to-br from-[#6B21A8] to-[#7C3AED] text-white rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow">
                   <div>
-                    <div className="flex justify-between items-start mb-3">
-                      <div className="text-[2.5rem]">🧒</div>
-                      <div className="bg-white/20 text-white text-[0.8rem] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <div className="flex justify-between items-start mb-2 md:mb-3">
+                      <div className="text-[2rem] md:text-[2.5rem]">🧒</div>
+                      <div className="bg-white/20 text-white text-[0.7rem] md:text-[0.8rem] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
                         🔥 Racha: {nino.racha} d
                       </div>
                     </div>
                     
-                    <h3 className="font-['Fredoka_One',cursive] text-[1.4rem] mb-1 leading-tight">{nino.nombre_completo}</h3>
-                    <p className="text-[0.8rem] opacity-75 mb-4">
+                    <h3 className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.4rem] mb-1 leading-tight">{nino.nombre_completo}</h3>
+                    <p className="text-[0.75rem] md:text-[0.8rem] opacity-75 mb-3 md:mb-4">
                       Registrado: {new Date(nino.fecha_registro).toLocaleDateString('es-MX')}
                     </p>
 
                     {/* Progreso general con barra */}
                     <div className="mb-4 bg-white/10 rounded-xl p-3 border border-white/5">
-                      <div className="flex justify-between text-xs font-bold mb-1 opacity-90">
+                      <div className="flex justify-between text-[0.7rem] md:text-xs font-bold mb-1 opacity-90">
                         <span>Progreso General</span>
                         <span>{nino.progresoGeneral}%</span>
                       </div>
-                      <div className="w-full bg-white/25 rounded-full h-2">
+                      <div className="w-full bg-white/25 rounded-full h-1.5 md:h-2">
                         <div 
-                          className="bg-[#16A34A] h-2 rounded-full transition-all" 
+                          className="bg-[#16A34A] h-1.5 md:h-2 rounded-full transition-all" 
                           style={{ width: `${nino.progresoGeneral}%` }}
                         />
                       </div>
                     </div>
 
                     {/* Mini estadísticas en grid */}
-                    <div className="grid grid-cols-3 gap-2 text-center text-xs font-semibold mb-6">
+                    <div className="grid grid-cols-3 gap-1.5 md:gap-2 text-center text-[0.7rem] md:text-xs font-semibold mb-5 md:mb-6">
                       <div className="bg-white/10 rounded-lg p-1.5">
-                        <span className="block text-[1rem]">🔤</span>
+                        <span className="block text-[0.9rem] md:text-[1rem]">🔤</span>
                         <span className="block font-bold">{nino.letrasLearned}/27</span>
-                        <span className="text-[0.65rem] opacity-75">Letras</span>
+                        <span className="text-[0.6rem] md:text-[0.65rem] opacity-75">Letras</span>
                       </div>
                       <div className="bg-white/10 rounded-lg p-1.5">
-                        <span className="block text-[1rem]">✍️</span>
+                        <span className="block text-[0.9rem] md:text-[1rem]">✍️</span>
                         <span className="block font-bold">{nino.nivelDesafios - 1}/3</span>
-                        <span className="text-[0.65rem] opacity-75">Niveles</span>
+                        <span className="text-[0.6rem] md:text-[0.65rem] opacity-75">Niveles</span>
                       </div>
                       <div className="bg-white/10 rounded-lg p-1.5">
-                        <span className="block text-[1rem]">⭐</span>
+                        <span className="block text-[0.9rem] md:text-[1rem]">⭐</span>
                         <span className="block font-bold">{nino.puntuacion}</span>
-                        <span className="text-[0.65rem] opacity-75">Puntos</span>
+                        <span className="text-[0.6rem] md:text-[0.65rem] opacity-75">Puntos</span>
                       </div>
                     </div>
                   </div>
 
                   <Link
                     to={`/progreso-alumno/${nino.id}`}
-                    className="block text-center bg-white hover:bg-[#FAF7F0] text-[#6B21A8] font-bold py-2.5 rounded-xl transition-all no-underline shadow-sm"
+                    className="block text-center bg-white hover:bg-[#FAF7F0] text-[#6B21A8] font-bold py-2 md:py-2.5 rounded-xl transition-all no-underline shadow-sm text-[0.9rem] md:text-[1rem]"
                   >
                     Ver reporte detallado →
                   </Link>

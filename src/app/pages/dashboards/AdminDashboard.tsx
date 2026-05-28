@@ -158,20 +158,20 @@ export default function AdminDashboard() {
       <DinoLettersBg />
 
       {/* Header */}
-      <header className="bg-[#3B0764] shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-8 py-4 relative z-10">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 no-underline">
-            <span className="text-[2rem]">🦕</span>
-            <span className="font-['Fredoka_One',cursive] text-[1.5rem] text-white">
+      <header className="bg-[#3B0764] shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-4 md:px-8 py-3 md:py-4 relative z-10">
+        <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-1.5 md:gap-2 no-underline shrink-0">
+            <span className="text-[1.5rem] md:text-[2rem]">🦕</span>
+            <span className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] text-white">
               LETRASAURIO <span className="text-[#FACC15]">ADMIN</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4 ml-auto">
             <div className="text-right text-white">
-              <p className="font-bold">Panel de Administración 👤</p>
-              <p className="text-[0.85rem] opacity-90 font-semibold">{user?.name}</p>
+              <p className="font-bold text-[0.85rem] md:text-[1rem] leading-tight">Panel Admin 👤</p>
+              <p className="text-[0.7rem] md:text-[0.85rem] opacity-90 font-semibold leading-tight">{user?.name}</p>
             </div>
-            <button onClick={handleLogout} className="bg-white/20 border-2 border-white/50 text-white font-bold px-4 py-2 rounded-full hover:bg-white/30 transition-all">
+            <button onClick={handleLogout} className="bg-white/20 border-2 border-white/50 text-white font-bold px-3 py-1 md:px-4 md:py-2 text-[0.85rem] md:text-[1rem] rounded-full hover:bg-white/30 transition-all shrink-0">
               Salir
             </button>
           </div>
@@ -180,27 +180,27 @@ export default function AdminDashboard() {
 
       {/* Stats Cards */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-8 py-8">
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-[#7C3AED] to-[#A855F7] text-white rounded-2xl p-4 text-center">
-              <div className="text-[2rem] mb-1">👥</div>
-              <p className="font-['Fredoka_One',cursive] text-[1.8rem]">{stats.totalUsers}</p>
-              <p className="text-[0.85rem] font-semibold opacity-90">Total usuarios</p>
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-4 md:py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div className="bg-gradient-to-br from-[#7C3AED] to-[#A855F7] text-white rounded-xl md:rounded-2xl p-3 md:p-4 text-center">
+              <div className="text-[1.5rem] md:text-[2rem] mb-1">👥</div>
+              <p className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem]">{stats.totalUsers}</p>
+              <p className="text-[0.75rem] md:text-[0.85rem] font-semibold opacity-90">Total usuarios</p>
             </div>
-            <div className="bg-gradient-to-br from-[#16A34A] to-[#4ADE80] text-white rounded-2xl p-4 text-center">
-              <div className="text-[2rem] mb-1">🧒</div>
-              <p className="font-['Fredoka_One',cursive] text-[1.8rem]">{stats.activeNinos}</p>
-              <p className="text-[0.85rem] font-semibold opacity-90">Niños</p>
+            <div className="bg-gradient-to-br from-[#16A34A] to-[#4ADE80] text-white rounded-xl md:rounded-2xl p-3 md:p-4 text-center">
+              <div className="text-[1.5rem] md:text-[2rem] mb-1">🧒</div>
+              <p className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem]">{stats.activeNinos}</p>
+              <p className="text-[0.75rem] md:text-[0.85rem] font-semibold opacity-90">Niños</p>
             </div>
-            <div className="bg-gradient-to-br from-[#F97316] to-[#FDE68A] text-gray-800 rounded-2xl p-4 text-center">
-              <div className="text-[2rem] mb-1">👨‍👩‍👧</div>
-              <p className="font-['Fredoka_One',cursive] text-[1.8rem]">{stats.activeTutors}</p>
-              <p className="text-[0.85rem] font-semibold opacity-90">Tutores</p>
+            <div className="bg-gradient-to-br from-[#F97316] to-[#FDE68A] text-gray-800 rounded-xl md:rounded-2xl p-3 md:p-4 text-center">
+              <div className="text-[1.5rem] md:text-[2rem] mb-1">👨‍👩‍👧</div>
+              <p className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem]">{stats.activeTutors}</p>
+              <p className="text-[0.75rem] md:text-[0.85rem] font-semibold opacity-90">Tutores</p>
             </div>
-            <div className="bg-gradient-to-br from-[#3B82F6] to-[#93C5FD] text-white rounded-2xl p-4 text-center">
-              <div className="text-[2rem] mb-1">👤</div>
-              <p className="font-['Fredoka_One',cursive] text-[1.8rem]">{stats.admins}</p>
-              <p className="text-[0.85rem] font-semibold opacity-90">Admins</p>
+            <div className="bg-gradient-to-br from-[#3B82F6] to-[#93C5FD] text-white rounded-xl md:rounded-2xl p-3 md:p-4 text-center">
+              <div className="text-[1.5rem] md:text-[2rem] mb-1">👤</div>
+              <p className="font-['Fredoka_One',cursive] text-[1.4rem] md:text-[1.8rem]">{stats.admins}</p>
+              <p className="text-[0.75rem] md:text-[0.85rem] font-semibold opacity-90">Admins</p>
             </div>
           </div>
         </div>
@@ -208,15 +208,15 @@ export default function AdminDashboard() {
 
       {/* Tabs */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex gap-2">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+          <div className="flex flex-col sm:flex-row gap-0 sm:gap-2">
             {[
               { key: "tutores", label: "👨‍👩‍👧 Tutores y Estudiantes" },
               { key: "users",   label: "👥 Todos los Usuarios"       },
             ].map(({ key, label }) => (
               <button key={key}
                 onClick={() => setActiveTab(key as any)}
-                className={`px-6 py-4 font-bold transition-all ${activeTab === key ? "text-[#6B21A8] border-b-4 border-[#6B21A8]" : "text-gray-600 hover:text-gray-800"}`}
+                className={`px-4 md:px-6 py-3 md:py-4 font-bold transition-all text-center text-[0.95rem] md:text-[1rem] ${activeTab === key ? "text-[#6B21A8] border-b-4 border-[#6B21A8]" : "text-gray-600 hover:text-gray-800"}`}
               >
                 {label}
               </button>
@@ -226,7 +226,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Content */}
-      <div className="max-w-[1400px] mx-auto px-8 py-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-8 relative z-10">
 
         {activeTab === "tutores" && (
           <div>

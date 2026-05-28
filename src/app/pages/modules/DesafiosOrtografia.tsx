@@ -649,38 +649,38 @@ export default function DesafiosOrtografia() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#c7f2a4] via-[#bae6fd] to-[#e9d5ff] relative overflow-hidden">
       <DinoLettersBg />
-      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-8 py-4 relative z-10">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <Link to="/dashboard/nino" className="flex items-center gap-2 no-underline">
-            <span className="text-[2rem]">🦕</span>
-            <span className="font-['Fredoka_One',cursive] text-[1.5rem] text-[#6B21A8]">
+      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-4 md:px-8 py-3 md:py-4 relative z-10">
+        <div className="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <Link to="/dashboard/nino" className="flex items-center gap-1.5 md:gap-2 no-underline shrink-0">
+            <span className="text-[1.5rem] md:text-[2rem]">🦕</span>
+            <span className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] text-[#6B21A8]">
               LETRA<span className="text-[#16A34A]">SAURIO</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4">
-            <div className="bg-[#FACC15] px-6 py-2 rounded-full">
-              <span className="font-['Fredoka_One',cursive] text-[1.2rem] text-[#3B0764]">⭐ {score} puntos</span>
+          <div className="flex items-center gap-2 md:gap-4 ml-auto">
+            <div className="bg-[#FACC15] px-3 md:px-6 py-1.5 md:py-2 rounded-full shrink-0">
+              <span className="font-['Fredoka_One',cursive] text-[0.95rem] md:text-[1.2rem] text-[#3B0764]">⭐ {score} pts</span>
             </div>
             {vista !== "menu" && (
-              <button onClick={() => setVista("menu")} className="text-[#6B21A8] font-bold hover:text-[#7C3AED]">
+              <button onClick={() => setVista("menu")} className="text-[#6B21A8] font-bold hover:text-[#7C3AED] text-[0.85rem] md:text-[1rem] shrink-0">
                 ← Niveles
               </button>
             )}
-            <Link to="/dashboard/nino" className="text-[#6B21A8] font-bold hover:text-[#7C3AED] no-underline">🏠 Inicio</Link>
+            <Link to="/dashboard/nino" className="text-[#6B21A8] font-bold hover:text-[#7C3AED] no-underline text-[0.85rem] md:text-[1rem] shrink-0 hidden sm:inline-block">🏠 Inicio</Link>
           </div>
         </div>
       </header>
 
-      <div className="max-w-[900px] mx-auto px-8 py-12 relative z-10">
-        <div className="text-center mb-8">
-          <h1 className="font-['Fredoka_One',cursive] text-[2.5rem] text-[#3B0764] mb-3">✍️ Desafíos de Ortografía</h1>
-          <p className="text-[1.1rem] text-gray-700 font-semibold">Completa las palabras con la letra correcta</p>
+      <div className="max-w-[900px] mx-auto px-4 md:px-8 py-6 md:py-12 relative z-10">
+        <div className="text-center mb-6 md:mb-8">
+          <h1 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[2.5rem] text-[#3B0764] mb-2 md:mb-3">✍️ Desafíos de Ortografía</h1>
+          <p className="text-[1rem] md:text-[1.1rem] text-gray-700 font-semibold px-2">Completa las palabras con la letra correcta</p>
         </div>
 
         <AnimatePresence mode="wait">
           {vista === "menu" && (
             <motion.div key="menu" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {(Object.keys(nivelConfig) as Nivel[]).map((nivel) => {
                   const info = nivelConfig[nivel];
                   const desbloqueado = nivelDesbloqueado(nivel);
@@ -689,27 +689,29 @@ export default function DesafiosOrtografia() {
                     <motion.button key={nivel} onClick={() => desbloqueado && iniciarNivel(nivel)}
                       disabled={!desbloqueado} whileHover={{ scale: desbloqueado ? 1.05 : 1 }}
                       whileTap={{ scale: desbloqueado ? 0.95 : 1 }}
-                      className={`relative rounded-[24px] p-8 text-center shadow-[0_4px_20px_rgba(107,33,168,0.15)] transition-all ${
+                      className={`relative rounded-[20px] md:rounded-[24px] p-6 md:p-8 text-center shadow-[0_4px_20px_rgba(107,33,168,0.15)] transition-all flex flex-col md:block items-center sm:flex-row sm:text-left md:text-center ${
                         desbloqueado ? `bg-gradient-to-br ${info.color} text-white cursor-pointer` : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}>
-                      {completado && <div className="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center">✅</div>}
-                      {!desbloqueado && <div className="absolute top-3 right-3 text-[1.5rem]">🔒</div>}
-                      <div className="text-[4rem] mb-3">{info.emoji}</div>
-                      <h3 className="font-['Fredoka_One',cursive] text-[1.8rem] mb-2">{info.label}</h3>
-                      <p className={`text-[0.9rem] font-semibold mb-3 ${desbloqueado ? "opacity-90" : "text-gray-400"}`}>{info.descripcion}</p>
-                      {!desbloqueado && <p className="text-[0.8rem] font-bold text-gray-500 mt-2">Completa el nivel anterior</p>}
+                      {completado && <div className="absolute top-3 right-3 bg-white rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center text-[0.8rem] md:text-[1rem]">✅</div>}
+                      {!desbloqueado && <div className="absolute top-3 right-3 text-[1.2rem] md:text-[1.5rem]">🔒</div>}
+                      <div className="text-[3.5rem] md:text-[4rem] mb-2 md:mb-3 shrink-0 sm:mr-4 md:mr-0">{info.emoji}</div>
+                      <div>
+                        <h3 className="font-['Fredoka_One',cursive] text-[1.5rem] md:text-[1.8rem] mb-1 md:mb-2">{info.label}</h3>
+                        <p className={`text-[0.85rem] md:text-[0.9rem] font-semibold mb-2 md:mb-3 leading-tight ${desbloqueado ? "opacity-90" : "text-gray-400"}`}>{info.descripcion}</p>
+                        {!desbloqueado && <p className="text-[0.75rem] md:text-[0.8rem] font-bold text-gray-500 mt-1 md:mt-2">Completa el nivel anterior</p>}
+                      </div>
                     </motion.button>
                   );
                 })}
               </div>
               {nivelesCompletados.length > 0 && (
-                <div className="mt-8 bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
-                  <h3 className="font-['Fredoka_One',cursive] text-[1.3rem] text-[#6B21A8] mb-3 text-center">Tu progreso</h3>
-                  <div className="bg-gray-200 rounded-full h-4">
-                    <div className="bg-gradient-to-r from-[#16A34A] to-[#4ADE80] rounded-full h-4 transition-all duration-500"
+                <div className="mt-6 md:mt-8 bg-white rounded-[20px] md:rounded-[24px] p-5 md:p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
+                  <h3 className="font-['Fredoka_One',cursive] text-[1.1rem] md:text-[1.3rem] text-[#6B21A8] mb-2 md:mb-3 text-center">Tu progreso</h3>
+                  <div className="bg-gray-200 rounded-full h-3 md:h-4">
+                    <div className="bg-gradient-to-r from-[#16A34A] to-[#4ADE80] rounded-full h-3 md:h-4 transition-all duration-500"
                       style={{ width: `${(nivelesCompletados.length / 3) * 100}%` }} />
                   </div>
-                  <p className="text-center text-gray-600 font-semibold mt-2">{nivelesCompletados.length} de 3 niveles completados</p>
+                  <p className="text-center text-gray-600 font-semibold mt-2 text-[0.85rem] md:text-[1rem]">{nivelesCompletados.length} de 3 niveles completados</p>
                 </div>
               )}
             </motion.div>
@@ -717,15 +719,15 @@ export default function DesafiosOrtografia() {
 
           {vista === "jugando" && (
             <motion.div key="jugando" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
-              <div className="bg-white rounded-2xl p-4 mb-6 shadow-[0_2px_12px_rgba(107,33,168,0.06)]">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-gray-700">
+              <div className="bg-white rounded-xl md:rounded-2xl p-3 md:p-4 mb-4 md:mb-6 shadow-[0_2px_12px_rgba(107,33,168,0.06)]">
+                <div className="flex flex-col sm:flex-row items-center justify-between mb-2 gap-1 text-center sm:text-left">
+                  <span className="font-bold text-gray-700 text-[0.8rem] md:text-[1rem]">
                     {nivelConfig[nivelActual].emoji} Nivel {nivelConfig[nivelActual].label} — Pregunta {currentQuestion + 1} de {totalPreguntas}
                   </span>
-                  <span className="font-bold text-[#6B21A8]">{Math.round(((currentQuestion + 1) / totalPreguntas) * 100)}%</span>
+                  <span className="font-bold text-[#6B21A8] text-[0.85rem] md:text-[1rem]">{Math.round(((currentQuestion + 1) / totalPreguntas) * 100)}%</span>
                 </div>
-                <div className="bg-gray-200 rounded-full h-3">
-                  <motion.div className={`bg-gradient-to-r ${nivelConfig[nivelActual].color} rounded-full h-3`}
+                <div className="bg-gray-200 rounded-full h-2 md:h-3">
+                  <motion.div className={`bg-gradient-to-r ${nivelConfig[nivelActual].color} rounded-full h-2 md:h-3`}
                     initial={{ width: 0 }}
                     animate={{ width: `${((currentQuestion + 1) / totalPreguntas) * 100}%` }}
                     transition={{ duration: 0.5 }} />
@@ -739,32 +741,32 @@ export default function DesafiosOrtografia() {
 
           {vista === "resultado" && (
             <motion.div key="resultado" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-              className={`bg-gradient-to-br ${nivelConfig[nivelActual].color} text-white rounded-[28px] p-12 shadow-[0_8px_30px_rgba(22,163,74,0.3)] text-center`}>
-              <div className="text-[6rem] mb-4">
+              className={`bg-gradient-to-br ${nivelConfig[nivelActual].color} text-white rounded-[24px] md:rounded-[28px] p-6 md:p-12 shadow-[0_8px_30px_rgba(22,163,74,0.3)] text-center`}>
+              <div className="text-[4.5rem] md:text-[6rem] mb-3 md:mb-4 leading-none">
                 {preguntasCorrectas === totalPreguntas ? "🏆" : preguntasCorrectas >= totalPreguntas * 0.7 ? "🌟" : "💪"}
               </div>
-              <h2 className="font-['Fredoka_One',cursive] text-[2.5rem] mb-4">
+              <h2 className="font-['Fredoka_One',cursive] text-[1.8rem] md:text-[2.5rem] mb-2 md:mb-4">
                 {preguntasCorrectas === totalPreguntas ? "¡Perfecto!" : "¡Nivel completado!"}
               </h2>
-              <p className="text-[1.5rem] font-bold mb-2">{preguntasCorrectas} de {totalPreguntas} respuestas correctas</p>
-              <p className="text-[1.2rem] font-semibold mb-8 opacity-90">
+              <p className="text-[1.1rem] md:text-[1.5rem] font-bold mb-1 md:mb-2 leading-tight">{preguntasCorrectas} de {totalPreguntas} respuestas correctas</p>
+              <p className="text-[0.95rem] md:text-[1.2rem] font-semibold mb-6 md:mb-8 opacity-90 leading-tight px-2">
                 {preguntasCorrectas === totalPreguntas ? "🌟 ¡Dominaste todas las palabras!"
                   : preguntasCorrectas >= totalPreguntas * 0.7 ? "👍 ¡Muy bien! Sigue practicando"
                   : "💪 Buen intento. ¡Puedes mejorar!"}
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center">
                 <button onClick={() => iniciarNivel(nivelActual)}
-                  className="bg-white/25 hover:bg-white/40 text-white font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-xl border-2 border-white/50">
-                  🔄 Intentar de nuevo
+                  className="w-full sm:w-auto bg-white/25 hover:bg-white/40 text-white font-['Fredoka_One',cursive] text-[0.95rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-white/50">
+                  🔄 Reintentar
                 </button>
                 {sigNivel && (
                   <button onClick={() => iniciarNivel(sigNivel)}
-                    className="bg-white text-[#6B21A8] hover:bg-gray-100 font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-xl shadow-lg">
-                    ➡️ Siguiente nivel: {nivelConfig[sigNivel].label}
+                    className="w-full sm:w-auto bg-white text-[#6B21A8] hover:bg-gray-100 font-['Fredoka_One',cursive] text-[0.95rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-xl shadow-lg">
+                    ➡️ Sig. nivel: {nivelConfig[sigNivel].label}
                   </button>
                 )}
                 <Link to="/dashboard/nino"
-                  className="bg-white/25 hover:bg-white/40 text-white font-['Fredoka_One',cursive] text-[1.1rem] px-8 py-4 rounded-xl border-2 border-white/50 no-underline">
+                  className="w-full sm:w-auto bg-white/25 hover:bg-white/40 text-white font-['Fredoka_One',cursive] text-[0.95rem] md:text-[1.1rem] px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-white/50 no-underline inline-block">
                   🏠 Inicio
                 </Link>
               </div>

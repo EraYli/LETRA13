@@ -208,51 +208,51 @@ export default function JuegoLetras() {
       <DinoLettersBg />
 
       {/* Header */}
-      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-8 py-4 relative z-10">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <Link to="/dashboard/nino" className="flex items-center gap-2 no-underline">
-            <span className="text-[2rem]">🦕</span>
-            <span className="font-['Fredoka_One',cursive] text-[1.5rem] text-[#6B21A8]">
+      <header className="bg-white shadow-[0_2px_12px_rgba(107,33,168,0.10)] px-4 md:px-8 py-3 md:py-4 relative z-10">
+        <div className="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <Link to="/dashboard/nino" className="flex items-center gap-1.5 md:gap-2 no-underline shrink-0">
+            <span className="text-[1.5rem] md:text-[2rem]">🦕</span>
+            <span className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] text-[#6B21A8]">
               LETRA<span className="text-[#16A34A]">SAURIO</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4">
-            <div className="bg-[#FACC15] px-6 py-2 rounded-full">
-              <span className="font-['Fredoka_One',cursive] text-[1.2rem] text-[#3B0764]">
-                ⭐ {score} puntos
+          <div className="flex items-center gap-3 md:gap-4 ml-auto">
+            <div className="bg-[#FACC15] px-4 md:px-6 py-1.5 md:py-2 rounded-full shrink-0">
+              <span className="font-['Fredoka_One',cursive] text-[1rem] md:text-[1.2rem] text-[#3B0764]">
+                ⭐ {score} pts
               </span>
             </div>
-            <Link to="/dashboard/nino" className="text-[#6B21A8] font-bold hover:text-[#7C3AED] transition-colors no-underline">
+            <Link to="/dashboard/nino" className="text-[#6B21A8] font-bold hover:text-[#7C3AED] transition-colors no-underline text-[0.9rem] md:text-[1rem] shrink-0">
               ← Volver
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="max-w-[1200px] mx-auto px-8 py-12 relative z-10">
-        <div className="text-center mb-8">
-          <h1 className="font-['Fredoka_One',cursive] text-[2.5rem] text-[#3B0764] mb-3">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-6 md:py-12 relative z-10">
+        <div className="text-center mb-6 md:mb-8">
+          <h1 className="font-['Fredoka_One',cursive] text-[2rem] md:text-[2.5rem] text-[#3B0764] mb-2 md:mb-3">
             🔤 Juego de Letras
           </h1>
-          <p className="text-[1.1rem] text-gray-700 font-semibold">
+          <p className="text-[1rem] md:text-[1.1rem] text-gray-700 font-semibold px-2">
             Haz clic en una letra para aprender su sonido y palabras
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {/* Grid de letras */}
-          <div className="bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
-            <h2 className="font-['Fredoka_One',cursive] text-[1.5rem] text-[#6B21A8] mb-4 text-center">
+          <div className="bg-white rounded-[20px] md:rounded-[24px] p-5 md:p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
+            <h2 className="font-['Fredoka_One',cursive] text-[1.3rem] md:text-[1.5rem] text-[#6B21A8] mb-4 text-center">
               Selecciona una letra
             </h2>
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
               {letrasData.map((item) => {
                 const aprendida = letrasAprendidas.includes(item.letter);
                 return (
                   <motion.button
                     key={item.letter}
                     onClick={() => handleLetterClick(item)}
-                    className={`aspect-square rounded-2xl font-['Fredoka_One',cursive] text-[1.5rem] transition-all ${
+                    className={`aspect-square rounded-xl md:rounded-2xl font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] transition-all flex items-center justify-center ${
                       selectedLetter?.letter === item.letter
                         ? "bg-[#6B21A8] text-white shadow-lg"
                         : aprendida
@@ -267,7 +267,7 @@ export default function JuegoLetras() {
                 );
               })}
             </div>
-            <p className="text-center text-gray-500 font-semibold mt-4 text-[0.85rem]">
+            <p className="text-center text-gray-500 font-semibold mt-4 text-[0.8rem] md:text-[0.85rem]">
               🟢 Verde = letra aprendida
             </p>
           </div>
@@ -281,24 +281,24 @@ export default function JuegoLetras() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="bg-gradient-to-br from-[#7C3AED] to-[#A855F7] text-white rounded-[24px] p-8 shadow-[0_8px_30px_rgba(107,33,168,0.2)]"
+                  className="bg-gradient-to-br from-[#7C3AED] to-[#A855F7] text-white rounded-[20px] md:rounded-[24px] p-6 md:p-8 shadow-[0_8px_30px_rgba(107,33,168,0.2)]"
                 >
-                  <div className="text-center mb-6">
-                    <div className="font-['Fredoka_One',cursive] text-[7rem] leading-none mb-2">
+                  <div className="text-center mb-5 md:mb-6">
+                    <div className="font-['Fredoka_One',cursive] text-[5rem] md:text-[7rem] leading-none mb-1 md:mb-2">
                       {selectedLetter.letter}
                     </div>
                     {selectedLetter.sound && (
-                      <p className="text-[1.2rem] font-bold opacity-90">
+                      <p className="text-[1rem] md:text-[1.2rem] font-bold opacity-90">
                         Sonido: {selectedLetter.sound}
                       </p>
                     )}
                   </div>
 
-                  <p className="text-center text-white/80 font-semibold text-[0.95rem] mb-3">
+                  <p className="text-center text-white/80 font-semibold text-[0.85rem] md:text-[0.95rem] mb-3 md:mb-4">
                     👆 Toca una imagen para escuchar la palabra
                   </p>
 
-                  <div className="grid grid-cols-5 gap-2 mb-6">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-5 md:mb-6">
                     {selectedLetter.palabras.map((p) => (
                       <motion.button
                         key={p.word}
@@ -310,18 +310,18 @@ export default function JuegoLetras() {
                         }`}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <span className="text-[2rem]">{p.image}</span>
-                        <span className="text-[0.7rem] font-bold mt-1">{p.word}</span>
+                        <span className="text-[1.8rem] md:text-[2rem] leading-tight">{p.image}</span>
+                        <span className="text-[0.65rem] md:text-[0.7rem] font-bold mt-1 text-center w-full truncate">{p.word}</span>
                       </motion.button>
                     ))}
                   </div>
 
                   {selectedPalabra && (
-                    <div className="bg-white/20 rounded-2xl p-4 mb-6 text-center">
-                      <p className="font-['Fredoka_One',cursive] text-[1.5rem]">
-                        {selectedPalabra.image} {selectedPalabra.word}
+                    <div className="bg-white/20 rounded-xl md:rounded-2xl p-3 md:p-4 mb-5 md:mb-6 text-center">
+                      <p className="font-['Fredoka_One',cursive] text-[1.2rem] md:text-[1.5rem] flex items-center justify-center gap-2">
+                        <span>{selectedPalabra.image}</span> <span>{selectedPalabra.word}</span>
                       </p>
-                      <p className="font-semibold opacity-90 mt-1">
+                      <p className="font-semibold opacity-90 mt-1 text-[0.85rem] md:text-[1rem]">
                         comienza con la letra <strong>{selectedLetter.letter}</strong>
                       </p>
                     </div>
@@ -331,7 +331,7 @@ export default function JuegoLetras() {
                     <button
                       onClick={handleLetraAprendida}
                       disabled={yaAprendida}
-                      className={`w-full font-['Fredoka_One',cursive] py-3 rounded-xl transition-all ${
+                      className={`w-full font-['Fredoka_One',cursive] py-3 rounded-xl transition-all text-[0.95rem] md:text-[1rem] ${
                         yaAprendida
                           ? "bg-[#16A34A] text-white cursor-default"
                           : "bg-[#FACC15] hover:bg-[#FDE68A] text-[#3B0764]"
@@ -345,11 +345,11 @@ export default function JuegoLetras() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="bg-white rounded-[24px] p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] h-full flex items-center justify-center"
+                  className="bg-white rounded-[20px] md:rounded-[24px] p-6 md:p-8 shadow-[0_4px_20px_rgba(107,33,168,0.08)] h-full min-h-[300px] flex items-center justify-center"
                 >
                   <div className="text-center">
-                    <div className="text-[6rem] mb-4">🦖</div>
-                    <p className="text-gray-600 font-bold text-[1.2rem]">
+                    <div className="text-[4rem] md:text-[6rem] mb-3 md:mb-4">🦖</div>
+                    <p className="text-gray-600 font-bold text-[1rem] md:text-[1.2rem]">
                       Selecciona una letra para comenzar
                     </p>
                   </div>
@@ -360,18 +360,18 @@ export default function JuegoLetras() {
         </div>
 
         {/* Progreso */}
-        <div className="mt-8 bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-['Fredoka_One',cursive] text-[1.3rem] text-[#6B21A8]">
+        <div className="mt-6 md:mt-8 bg-white rounded-[20px] md:rounded-[24px] p-5 md:p-6 shadow-[0_4px_20px_rgba(107,33,168,0.08)]">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-3 md:mb-4 gap-2 text-center sm:text-left">
+            <h3 className="font-['Fredoka_One',cursive] text-[1.1rem] md:text-[1.3rem] text-[#6B21A8]">
               Tu progreso
             </h3>
-            <span className="font-bold text-gray-700">
+            <span className="font-bold text-gray-700 text-[0.9rem] md:text-[1rem]">
               {letrasAprendidas.length} / {letrasData.length} letras aprendidas
             </span>
           </div>
-          <div className="bg-gray-200 rounded-full h-4">
+          <div className="bg-gray-200 rounded-full h-3 md:h-4">
             <div
-              className="bg-gradient-to-r from-[#7C3AED] to-[#A855F7] rounded-full h-4 transition-all duration-500"
+              className="bg-gradient-to-r from-[#7C3AED] to-[#A855F7] rounded-full h-3 md:h-4 transition-all duration-500"
               style={{ width: `${(letrasAprendidas.length / letrasData.length) * 100}%` }}
             />
           </div>
